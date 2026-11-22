@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isHeroImageReady, setIsHeroImageReady] = useState(false);
 
   return (
     <div className="relative h-screen w-full overflow-hidden bg-zinc-800">
@@ -13,8 +14,12 @@ const App = () => {
         isMenuOpen={isMenuOpen}
         onMenuClose={() => setIsMenuOpen(false)}
       />
-      <LoadParent />
-      <Home onMenuClick={() => setIsMenuOpen((isOpen) => !isOpen)} />
+      <LoadParent isHeroImageReady={isHeroImageReady} />
+      <Home
+        isHeroImageReady={isHeroImageReady}
+        onHeroImageReady={() => setIsHeroImageReady(true)}
+        onMenuClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+      />
     </div>
   );
 };

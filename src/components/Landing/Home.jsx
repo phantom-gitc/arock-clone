@@ -14,13 +14,19 @@ CustomEase.create(
 const HERO_IMAGE =
   "https://images.prismic.io/arock-website-2023/d4147892-cb03-4582-af32-326bb109803f_AROCK-_1502.jpg?fm=webp&q=100&fit=crop";
 
-const Home = ({ onMenuClick }) => {
+const Home = ({
+  isHeroImageReady,
+  onHeroImageReady,
+  onMenuClick,
+}) => {
   const homeRef = useRef(null);
   const bgRef = useRef(null);
   const curtainRef = useRef(null);
 
   useGSAP(
     () => {
+      if (!isHeroImageReady) return;
+
       gsap
         .timeline()
         .fromTo(
@@ -43,17 +49,24 @@ const Home = ({ onMenuClick }) => {
           1.1,
         );
     },
-    { scope: homeRef, dependencies: [] },
+    { scope: homeRef, dependencies: [isHeroImageReady] },
   );
 
   return (
     <div ref={homeRef}>
       <div className="relative h-screen w-full overflow-hidden">
-        <div
+        <img
           ref={bgRef}
-          className="absolute inset-0 bg-cover bg-center will-change-transform"
-          style={{ backgroundImage: `url("${HERO_IMAGE}")` }}
-        ></div>
+          src={HERO_IMAGE}
+          alt=""
+          aria-hidden="true"
+          onLoad={onHeroImageReady}
+          onError={() => {
+            console.error("Failed to load the landing page image:", HERO_IMAGE);
+            onHeroImageReady();
+          }}
+          className="absolute inset-0 h-full w-full object-cover object-center will-change-transform"
+        />
 
         <NavBar onMenuClick={onMenuClick} />
         <CenterText />
