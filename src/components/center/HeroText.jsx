@@ -31,7 +31,7 @@ const HeroText = () => {
                 rotationX: 0,
                 autoAlpha: 1,
                 filter: "blur(0px)",
-                duration: 1.1,
+                duration: 1,
                 ease: "aHero",
                 stagger: 0.07,
             }, 1.3);

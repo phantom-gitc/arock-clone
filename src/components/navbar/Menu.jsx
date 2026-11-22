@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { useGSAP } from "@gsap/react"
 import { gsap } from "gsap"
 
-const Menu = () => {
+const Menu = ({ onMenuClick }) => {
 
     const menuRef = useRef(null)
 
@@ -17,7 +17,13 @@ const Menu = () => {
     }, { scope: menuRef, dependencies: [] })
 
   return (
-    <h3 ref={menuRef} className='text-[10px]'>MENU</h3>
+    <h3
+      ref={menuRef}
+      className='text-[10px] cursor-pointer'
+      onClick={onMenuClick}
+    >
+      MENU
+    </h3>
   )
 }
 

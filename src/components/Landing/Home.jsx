@@ -14,7 +14,7 @@ CustomEase.create(
 const HERO_IMAGE =
   "https://images.prismic.io/arock-website-2023/d4147892-cb03-4582-af32-326bb109803f_AROCK-_1502.jpg?fm=webp&q=100&fit=crop";
 
-const Home = () => {
+const Home = ({ onMenuClick }) => {
   const homeRef = useRef(null);
   const bgRef = useRef(null);
   const curtainRef = useRef(null);
@@ -28,7 +28,7 @@ const Home = () => {
           { scale: 1.12 },
           {
             scale: 1,
-            duration: 2,
+            duration: 1.7,
             ease: "expo.out",
           },
           0.35,
@@ -37,7 +37,7 @@ const Home = () => {
           curtainRef.current,
           {
             yPercent: -100,
-            duration: 0.95,
+            duration: 1,
             ease: "aCurtain",
           },
           1.1,
@@ -55,7 +55,7 @@ const Home = () => {
           style={{ backgroundImage: `url("${HERO_IMAGE}")` }}
         ></div>
 
-        <NavBar />
+        <NavBar onMenuClick={onMenuClick} />
         <CenterText />
       </div>
 

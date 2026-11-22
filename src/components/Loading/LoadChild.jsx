@@ -20,7 +20,7 @@ const LoadChild = () => {
         { width: 0 },
         {
           width: "100%",
-          duration: 1.1,
+          duration: 1.3,
           ease: "butteryExpo",
         },
         0.05
