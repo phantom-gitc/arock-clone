@@ -1,0 +1,123 @@
+:root {
+  --hero-size: clamp(3.25rem, 20.8vw, 22rem);
+  --meta-inset: 1.75rem;
+  --meta-bottom: 4.5rem;
+  --nav-pad-x: 0.75rem;
+  --nav-pad-y: 0.5rem;
+  --logo-size: 2.75rem;
+  --menu-size: 10px;
+  --play-size: 1.75rem;
+  --play-text-size: 11px;
+}
+
+h1[aria-label="AROCK"] {
+  font-size: var(--hero-size);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.hero-clip {
+  display: inline-block;
+  clip-path: inset(-25% -15% 0 -15%);
+  perspective: 600px;
+}
+
+.hero-char {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  backface-visibility: hidden;
+  will-change: transform, opacity, filter;
+}
+
+.fixed.inset-x-7.bottom-18 {
+  left: var(--meta-inset);
+  right: var(--meta-inset);
+  bottom: var(--meta-bottom);
+}
+
+.flex.w-full.items-start {
+  padding-left: var(--nav-pad-x);
+  padding-right: var(--nav-pad-x);
+  padding-top: var(--nav-pad-y);
+  padding-bottom: var(--nav-pad-y);
+}
+
+img[alt="A-Rock"] {
+  height: var(--logo-size);
+}
+
+.flex > h3 {
+  font-size: var(--menu-size);
+}
+
+button[aria-label="Play the film"] {
+  position: relative;
+  width: var(--play-size);
+  height: var(--play-size);
+}
+
+button[aria-label="Play the film"] + div {
+  font-size: var(--play-text-size);
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --hero-size: min(20.8vw, 22rem);
+    --meta-inset: 2.25rem;
+    --meta-bottom: 5rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --meta-inset: 1.5rem;
+    --meta-bottom: 4rem;
+    --logo-size: 2.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --meta-inset: 1rem;
+    --meta-bottom: 3rem;
+    --nav-pad-x: 0.5rem;
+    --nav-pad-y: 0.375rem;
+    --logo-size: 2.25rem;
+    --menu-size: 9px;
+    --play-size: 1.5rem;
+    --play-text-size: 10px;
+  }
+}
+
+@media (max-width: 479px) {
+  :root {
+    --meta-inset: 0.75rem;
+    --meta-bottom: 2.25rem;
+    --logo-size: 2rem;
+    --play-size: 1.375rem;
+    --play-text-size: 9px;
+  }
+}
+
+@media (max-width: 359px) {
+  :root {
+    --meta-bottom: 1.75rem;
+    --meta-inset: 0.5rem;
+  }
+}
+
+@media (max-height: 600px) {
+  :root {
+    --meta-bottom: 1.5rem;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  :root {
+    --hero-size: 14vw;
+    --meta-bottom: 1rem;
+    --logo-size: 2rem;
+  }
+}
+
+

@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "u8";
+    src: url("./assets/fonts/u8.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "a4";
+    src: url("./assets/fonts/a4.ttf") format("truetype");
+}
+
+@theme {
+    --font-u8: "u8", sans-serif;
+    --font-a4: "a4", sans-serif;
+}
+
+*{
+    
+    color: #fff;
+}
